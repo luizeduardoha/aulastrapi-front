@@ -1,0 +1,148 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box; /* BLINDAGEM MOBILE */
+}
+
+.loginBox {
+  background-color: #ffffff;
+  padding: 30px 20px; /* Reduzido nas laterais para dar mais espaço aos inputs no celular */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box; /* BLINDAGEM MOBILE: Impede a caixa de estourar a tela */
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box; /* BLINDAGEM MOBILE: Impede o input de vazar da caixa */
+}
+
+.input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.btnLogin {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 100%;
+  transition: background-color 0.2s;
+  box-sizing: border-box; /* BLINDAGEM MOBILE */
+}
+
+.btnLogin:hover {
+  background-color: #0056b3;
+}
+
+.btnLogin:disabled {
+  background-color: #a0c4ff;
+  cursor: not-allowed;
+}
+
+.errorMsg {
+  color: #dc3545;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+/* --- ESTILOS DOS TERMOS DE USO --- */
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.checkboxGroup input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.linkTermos {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box; /* BLINDAGEM MOBILE */
+}
+
+.modalContent {
+  background-color: #ffffff;
+  padding: 30px 20px; /* Ajuste para o celular */
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh; /* Excelente sacada! */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* BLINDAGEM MOBILE */
+}
+
+.modalContent h2 {
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.modalText {
+  overflow-y: auto; /* Cria a barra de rolagem interna */
+  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.6;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  box-sizing: border-box; /* BLINDAGEM MOBILE */
+}

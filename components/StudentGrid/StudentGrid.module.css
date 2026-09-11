@@ -1,0 +1,18 @@
+.gridContainer {
+  display: grid;
+  /* A MÁGICA RESPONSIVA: Cria colunas de no mínimo 280px. Se a tela for menor (celular), ocupa 100% */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box; /* Impede que o padding quebre a tela para o lado */
+}
+
+.errorMsg {
+  color: red;
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+}

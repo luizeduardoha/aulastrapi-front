@@ -1,0 +1,187 @@
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%; /* Garante que o card preencha o espaço da coluna */
+  box-sizing: border-box; /* O SEGREDO DO MOBILE: impede vazamento horizontal */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.avatarContainer {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: 3px solid #007bff;
+  background-color: #eee;
+}
+
+.avatarContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  text-align: center;
+  width: 100%;
+}
+
+.nome {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 4px;
+}
+
+.turma {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btnNota, .btnNotaActive {
+  color: white;
+  border: none;
+  padding: 12px 16px; /* Aumentado para 12px: melhor área de toque (Touch Target) */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.btnNota {
+  background-color: #007bff;
+}
+
+.btnNota:hover {
+  background-color: #0056b3;
+}
+
+.btnNotaActive {
+  background-color: #6c757d;
+}
+
+.notaDisplay {
+  margin-top: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #28a745;
+  padding: 10px; /* Melhor área de visualização */
+  background-color: #e8f5e9;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* --- NOVOS ESTILOS PARA EDIÇÃO DE NOTA --- */
+.editContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.inputNota {
+  width: 100%;
+  padding: 12px; /* Ajuste para toque */
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  text-align: center;
+  box-sizing: border-box; /* Impede vazamento do input */
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column; /* Empilha os botões no celular */
+  gap: 10px;
+  width: 100%;
+}
+
+/* Se a tela for de tablet/PC (maior que 480px), fica um do lado do outro */
+@media (min-width: 480px) {
+  .actionButtons {
+    flex-direction: row; 
+  }
+}
+
+.btnSave {
+  flex: 1;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px; /* Ajuste para toque */
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.btnSave:hover { background-color: #218838; }
+.btnSave:disabled { background-color: #88c796; cursor: not-allowed; }
+
+.btnCancel {
+  flex: 1;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 12px; /* Ajuste para toque */
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.btnCancel:hover { background-color: #c82333; }
+
+.btnEditInline {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  padding: 8px; /* Área mínima para o dedo */
+}
+
+/* --- ESTILOS DOS MÓDULOS (BADGES) --- */
+.badgesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.badge {
+  background-color: #e9ecef;
+  color: #495057;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #dee2e6;
+}

@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.title {
+  color: #333;
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.optionCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 40px 30px;
+  width: 300px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-bottom 0.2s ease;
+  text-decoration: none; /* Tira o sublinhado do link */
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 4px solid transparent;
+}
+
+.optionCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border-bottom: 4px solid #007bff; /* Detalhe azul ao passar o mouse */
+}
+
+.icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.cardDesc {
+  font-size: 1rem;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-top: 24px;
+  }
+
+  .title {
+    font-size: 1.45rem;
+    margin-bottom: 24px;
+  }
+
+  .cardsContainer {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .optionCard {
+    width: 100%;
+    max-width: 360px;
+    padding: 28px 20px;
+  }
+}

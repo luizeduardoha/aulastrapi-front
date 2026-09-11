@@ -1,0 +1,55 @@
+.header {
+  position: relative; /* Transforma o header na "caixa mãe" para o botão */
+  display: flex;
+  justify-content: center; /* Mantém o título perfeitamente no centro */
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 10px 0;
+}
+
+.header h1 {
+  color: #333;
+  margin: 0; /* Remove a margem antiga para alinhar bem com o botão */
+  font-size: 1.8rem;
+}
+
+.logoutContainer {
+  position: absolute; /* Tira o botão do fluxo normal */
+  right: 0; /* Gruda ele na ponta direita da tela */
+}
+
+.btnSair {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btnSair:hover {
+  background-color: #c82333;
+  transform: scale(1.05); /* Dá um leve efeito de crescimento ao passar o mouse */
+}
+
+@media (max-width: 480px) {
+  .header {
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .header h1 {
+    font-size: 1.35rem;
+  }
+
+  .logoutContainer {
+    position: static;
+  }
+
+  .btnSair {
+    padding: 8px 14px;
+  }
+}
