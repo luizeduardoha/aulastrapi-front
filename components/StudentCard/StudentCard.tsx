@@ -37,9 +37,10 @@ export default function StudentCard({ documentId, nome, turma, nota, foto, modul
       const token = localStorage.getItem('token');
       const response = await fetch(`https://aulastrapi.onrender.com/api/alunos/${documentId}`, {
         method: 'PUT',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
           data: { nota: Number(currentNota) }

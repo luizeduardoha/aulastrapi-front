@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link'; // Importação do Link para o botão voltar
 import Header from '@/components/Header/Header';
@@ -16,9 +16,7 @@ export default function BuscarAlunoPage() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token) {
-      router.push('/login');
-    }
+    if (!token) router.replace('/login');
   }, [router]);
 
   const handleSearch = async (e: React.FormEvent) => {
@@ -30,12 +28,18 @@ export default function BuscarAlunoPage() {
 
     try {
       const token = localStorage.getItem('token');
-      
       const url = `https://aulastrapi.onrender.com/api/alunos?filters[nome][$containsi]=${searchTerm}&populate=*`;
       
       const response = await fetch(url, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        credentials: 'include',
+        headers: { 'Authorization': `Bearer ${token}` },
       });
+
+      if (response.status === 401) {
+        localStorage.removeItem('token');
+        router.replace('/login');
+        return;
+      }
 
       if (response.ok) {
         const { data } = await response.json();

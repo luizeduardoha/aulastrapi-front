@@ -5,6 +5,13 @@ import { useRouter } from 'next/navigation';
 import styles from './login.module.css';
 import Link from 'next/link';
 
+type StrapiResponse = {
+  jwt?: string;
+  error?: {
+    message?: string;
+  };
+};
+
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,6 +27,7 @@ export default function LoginPage() {
     try {
       const response = await fetch('https://aulastrapi.onrender.com/api/auth/local', {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           identifier: email,
@@ -27,14 +35,18 @@ export default function LoginPage() {
         }),
       });
 
-      const data = await response.json();
+      const data: StrapiResponse | null = await response.json().catch(() => null);
 
-      if (data.jwt) {
-        // Sucesso! Salva o token no navegador
+      if (response.ok && data?.jwt) {
         localStorage.setItem('token', data.jwt);
         // Manda o usuário para a tela dos alunos (nossa Home)
-        router.push('/');
+        router.replace('/');
       } else {
+        const apiMessage = data?.error?.message;
+        if (apiMessage) {
+          setError(`Erro ${response.status}: ${apiMessage}`);
+          return;
+        }
         // O Strapi retorna erro se as credenciais forem inválidas
         setError('E-mail ou senha inválidos.');
       }

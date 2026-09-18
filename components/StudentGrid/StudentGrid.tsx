@@ -15,22 +15,28 @@ export default function StudentGrid() {
   useEffect(() => {
     const fetchStudents = async () => {
       const token = localStorage.getItem('token');
-      
+
       if (!token) {
-        router.push('/login');
+        router.replace('/login');
         return;
       }
 
       try {
         const response = await fetch(API_URL, {
+          credentials: 'include',
           headers: {
-            'Authorization': `Bearer ${token}`
-          }
+            'Authorization': `Bearer ${token}`,
+          },
         });
 
-        if (response.status === 401 || response.status === 403) {
+        if (response.status === 401) {
           localStorage.removeItem('token');
-          router.push('/login');
+          router.replace('/login');
+          return;
+        }
+
+        if (response.status === 403) {
+          setError('Seu usuário está autenticado, mas não tem permissão para consultar os alunos.');
           return;
         }
 

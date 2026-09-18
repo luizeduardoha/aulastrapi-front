@@ -33,6 +33,7 @@ export default function CadastroPage() {
     try {
       const response = await fetch('https://aulastrapi.onrender.com/api/auth/local/register', {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           username: username,
@@ -43,9 +44,9 @@ export default function CadastroPage() {
 
       const data = await response.json();
 
-      if (data.jwt) {
+      if (response.ok && data?.jwt) {
         localStorage.setItem('token', data.jwt);
-        router.push('/');
+        router.replace('/');
       } else {
         setError(data.error?.message || 'Erro ao criar conta.');
       }

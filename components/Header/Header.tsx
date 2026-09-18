@@ -6,7 +6,15 @@ import styles from './Header.module.css';
 export default function Header() {
   const router = useRouter();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    const token = localStorage.getItem('token');
+    await fetch('https://aulastrapi.onrender.com/api/auth/logout', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    }).catch(() => undefined);
     localStorage.removeItem('token');
     router.push('/login'); // Redireciona para a página de login
   };

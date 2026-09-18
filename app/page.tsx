@@ -9,14 +9,12 @@ import styles from './menu.module.css';
 export default function MenuPrincipal() {
   const router = useRouter();
 
-  // Verificação de segurança: Só fica aqui se estiver logado
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token) {
-      router.push('/login');
-    }
+    if (!token) router.replace('/login');
   }, [router]);
 
+  // Verificação de segurança: Só fica aqui se estiver logado
   return (
     <main>
       <Header />
